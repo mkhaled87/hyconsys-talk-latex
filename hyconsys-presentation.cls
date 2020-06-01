@@ -130,7 +130,9 @@
 \setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
 
 % custom color themes
-\newcommand{\hyconsyslogo}{hyconsys-resources/images/HyConSys_Logo_RGB.pdf}
+\newcommand{\hyconsyslogo}{hyconsys-resources/images/HyConSys_Logo_RGB.jpg}
+
+
 % set colors
 \newcommand{\PraesentationSchemaStandard}{
   \setbeamercolor*{background canvas}{}
@@ -157,7 +159,7 @@
   \setbeamercolor*{block body alerted}{fg=HYCONSYSOrange,bg=white}
   \setbeamercolor*{block title example}{fg=white,bg=HYCONSYSGruen}
   \setbeamercolor*{block body example}{fg=HYCONSYSGruen,bg=white}
-  \renewcommand{\hyconsyslogo}{hyconsys-resources/images/HyConSys_Logo_RGB.pdf}
+  \renewcommand{\hyconsyslogo}{hyconsys-resources/images/HyConSys_Logo_RGB.jpg}
 }
 
 \PraesentationSchemaStandard
@@ -211,7 +213,7 @@
   \end{beamercolorbox}
   \hfill
   \begin{beamercolorbox}[wd=0.25\textwidth, right]{}
-    \includegraphics[height=\hyconsysheadline]{\hyconsyslogo}
+    \includegraphics[width=0.05\textwidth]{\hyconsyslogo}
   \end{beamercolorbox}
   \begin{beamercolorbox}[wd=\hyconsysframemargin, left]{}
     ~
@@ -258,7 +260,7 @@
 \defbeamertemplate*{title page}{hyconsys-bg}{
   \PraesentationTitelseiteInhalt
   \begin{textblock*}{10.82cm}[1, 1](\paperwidth, \paperheight)
-    \includegraphics{hyconsys-resources/images/HyConSys_Background.png}
+    \includegraphics{hyconsys-resources/images/HyConSys_Background.jpg}
   \end{textblock*}
 }
 
