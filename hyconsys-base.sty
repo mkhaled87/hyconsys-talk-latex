@@ -1,0 +1,105 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hyconsys-base}[2020/05/31 HyconSys Lab Design Base v0.1]
+
+% load packages
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{calc}
+\RequirePackage[ngerman,english]{babel}
+\RequirePackage[export]{adjustbox}
+\RequirePackage[absolute, overlay]{textpos}
+\RequirePackage[gen]{eurosym}
+\DeclareUnicodeCharacter{20AC}{\euro{}}
+\RequirePackage{graphicx}
+\RequirePackage{tabularx}
+\RequirePackage{multicol}
+\RequirePackage{hyphenat}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\RequirePackage[hidelinks,breaklinks]{hyperref}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows, shapes, shapes.multipart, trees, positioning, backgrounds, fit, matrix}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=default}
+
+% font switch
+\newif\ifusetimes
+\usetimesfalse
+
+% process options
+\DeclareOption{times}{\usetimestrue}
+\DeclareOption{german}{\AtBeginDocument{\selectlanguage{ngerman}}}
+\DeclareOption{english}{\AtBeginDocument{\selectlanguage{english}}}
+\ExecuteOptions{english}
+\ProcessOptions\relax
+
+% font packages and selection
+\RequirePackage[scaled]{helvet}
+
+\ifusetimes
+\RequirePackage{newtxtext,newtxmath,courier}
+\renewcommand{\familydefault}{\rmdefault}
+\else
+\RequirePackage{sansmath}
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{\sfdefault}
+%\fontfamily{phv}\selectfont
+\fi
+
+% handle widows and orphans
+\widowpenalty=10000     % Hurenkinder
+\clubpenalty=10000      % Schusterjungen
+\displaywidowpenalty=10000
+
+% Blautöne:
+\definecolor{HYCONSYSBlau}{RGB}{0,101,189} % Pantone 300
+\definecolor{HYCONSYSBlauDunkel}{RGB}{0,82,147} % Pantone 301
+\definecolor{HYCONSYSBlauHell}{RGB}{152,198,234} % Pantone 283
+\definecolor{HYCONSYSBlauMittel}{RGB}{100,160,200} % Pantone 542
+
+% Hervorhebung:
+\definecolor{HYCONSYSElfenbein}{RGB}{218,215,203} % Pantone 7527 -Elfenbein
+\definecolor{HYCONSYSGruen}{RGB}{162,173,0} % Pantone 383 - Grün
+\definecolor{HYCONSYSOrange}{RGB}{227,114,34} % Pantone 158 - Orange
+\definecolor{HYCONSYSGrau}{gray}{0.6} % Grau 60%
+
+% university information
+\newcommand{\theuniversity}{Hybrid Control Systems Lab}
+\addto\captionsenglish{%
+  \renewcommand{\theuniversity}{Hybrid Control Systems Lab}
+}
+\addto\captionsngerman{%
+  \renewcommand{\theuniversity}{Technische Universität München}
+}
+\newcommand{\UniversitaetAbkuerzung}{HyConSys}
+\newcommand{\UniversitaetWebseite}{www.hyconsys.com}
+\newcommand{\UniversitaetAdresse}{%
+    1111 Engineering Drive\\%
+    Boulder, CO 80309-0430 USA%
+}
+
+% department information
+\newcommand{\thedepartment}{\strut}
+
+% group information
+\newcommand{\thegroup}{\strut}
+\newcommand{\thecontactperson}{\strut}
+
+% custom listings
+\usepackage{listings}
+\lstset{
+%  numbers=left,
+  basicstyle=\small\ttfamily,
+  keywordstyle=\color{HYCONSYSBlau}\ttfamily,
+  stringstyle=\color{HYCONSYSOrange}\ttfamily,
+  commentstyle=\color{HYCONSYSGruen}\ttfamily,
+%  aboveskip=0cm,
+%  belowskip=0cm,
+  morecomment=[l][\color{HYCONSYSElfenbein}]{\#},
+}
+
+
+% personalization
+\IfFileExists{hyconsys-user.sty}{\RequirePackage{hyconsys-user}}{}
